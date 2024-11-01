@@ -1,0 +1,7 @@
+<h2>Bienvenue <%= @user.email %> !</h2>
+
+<%= link_to "Se déconnecter", "#", class: "btn", onclick: "event.preventDefault(); if(confirm('Êtes-vous sûr de vouloir vous déconnecter ?')) { document.getElementById('logout-form').submit(); }" %>
+
+<%= form_with(url: session_path, method: :delete, id: 'logout-form', local: true) do %>
+  <%= csrf_meta_tags %> <!-- Assurez-vous que le CSRF token est présent -->
+<% end %>
